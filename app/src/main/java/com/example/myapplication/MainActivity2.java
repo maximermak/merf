@@ -21,9 +21,9 @@ import java.util.Locale;
 
 public class MainActivity2 extends AppCompatActivity {
     int a,b,c;
-    String accumulate = "";
     FloatingActionButton nextPage;
     TextView tvA, tvB, tvC, toSee;
+    int tmp;
 
 
     @Override
@@ -47,9 +47,11 @@ public class MainActivity2 extends AppCompatActivity {
 
         toSee = (TextView) findViewById(R.id.toSeeAText);
 
-
         Intent intent = new Intent(this, MainActivity3.class);
 
+
+
+        tvA.setText(getIntent().getStringExtra("justA"));
 
         TextWatcher textWatcher = new TextWatcher() {
             @Override
@@ -77,7 +79,6 @@ public class MainActivity2 extends AppCompatActivity {
                         cv.put(DBHelper.KEY_C,c);
                         cv.put(DBHelper.KEY_TIME, currentTime);
                         database.insert(DBHelper.TABLE_DISCRIMINANT, null, cv);
-
 
                     }
 
@@ -110,7 +111,21 @@ public class MainActivity2 extends AppCompatActivity {
                     }
             }
         };
-
+        if(getIntent().getStringExtra("anna") != null) {
+            tmp = Integer.parseInt(getIntent().getStringExtra("anna"));
+        }
+        if(tmp == 1) {
+            Cursor cursor = database.query(DBHelper.TABLE_DISCRIMINANT, null, null, null, null, null, null);
+            if (cursor.moveToLast()) {
+                do {
+                    tvA.setText(cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.KEY_A)));
+                    tvB.setText(cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.KEY_B)));
+                    tvC.setText(cursor.getString(cursor.getColumnIndexOrThrow(DBHelper.KEY_C)));
+                } while (cursor.moveToNext());
+            }
+            tmp = 0;
+            cursor.close();
+        }
 
 
         tvA.addTextChangedListener(textWatcher);

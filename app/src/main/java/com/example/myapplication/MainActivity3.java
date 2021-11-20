@@ -14,7 +14,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity3 extends AppCompatActivity {
 
-int a_5,b_5,c_5;
 FloatingActionButton nextPage, lastPage, deleteButton;
 String accumulate = "", time = "...";
 TextView history;
@@ -62,9 +61,7 @@ TextView history;
                 accumulate += cursor.getInt(idIndex) + ": " + cursor.getString(aIndex) +
                         ", " + cursor.getString(bIndex) + ", " + cursor.getString(cIndex) + " Время: " + cursor.getString(timeIndex) + "\n";
                 time = cursor.getString(timeIndex);
-                a_5 = cursor.getInt(aIndex);
-                b_5 = cursor.getInt(bIndex);
-                c_5 = cursor.getInt(cIndex);
+
 
 
             }while(cursor.moveToNext());
@@ -75,9 +72,7 @@ TextView history;
         history.setText(accumulate);
         cursor.close();
         intent2.putExtra("Time", time);
-        intent2.putExtra("a", a_5);
-        intent2.putExtra("b", b_5);
-        intent2.putExtra("c", c_5);
+
 
 
         nextPage.setOnClickListener(new View.OnClickListener() {

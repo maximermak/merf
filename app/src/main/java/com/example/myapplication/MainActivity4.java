@@ -33,6 +33,9 @@ public class MainActivity4 extends AppCompatActivity {
         lastUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(!getIntent().getStringExtra("Time").equals(""))
+                    intent1.putExtra("anna", "1");
+                    startActivity(intent1);
             }
         });
 
