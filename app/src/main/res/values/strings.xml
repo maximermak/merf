@@ -6,9 +6,28 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_main2">MainActivity2</string>
     <string name="a_b_c">Введите a,b,c</string>
+    <string name="yourHistory">Ваша история</string>
+    <string name="yourLogin">Ваш логин...</string>
+    <string name="yourPassword">Ваш пароль...</string>
+    <string name="create">создать</string>
+    <string name="createYourAcc">СОЗДАЙТЕ СВОЙ АККАУНТ</string>
+    <string name="back">назад</string>
+    <string name="amountOfUses">Количество использований:</string>
+    <string name="lastUpdate">Последнее обновление:</string>
+    <string name="stats">Статистика</string>
+    <string name="c">c</string>
+    <string name="a">a</string>
+    <string name="b">b</string>
+    <string name="enterYourLogin">Введите свой логин....</string>
+    <string name="enterYourPassword">Введите свой пароль....</string>
+    <string name="login">Логин</string>
+    <string name="password">Пароль</string>
+    <string name="enter">Ввойти</string>
+    <string name="todo">TODO</string>
+    <string name="or">или</string>
+    <string name="registration">зарегестрироваться</string>
 </resources>

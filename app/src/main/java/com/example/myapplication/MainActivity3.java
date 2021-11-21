@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -16,6 +17,10 @@ public class MainActivity3 extends AppCompatActivity {
 
 FloatingActionButton nextPage, lastPage, deleteButton;
 String accumulate = "", time = "...";
+   int amountUses = 0;
+   String tmp;
+   String ifDelete = "1";
+
 TextView history;
 
     @Override
@@ -39,11 +44,14 @@ TextView history;
 
        history = (TextView) findViewById(R.id.myHistory);
 
+       history.setMovementMethod(new ScrollingMovementMethod());
+
        deleteButton.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View view) {
                database.delete(DBHelper.TABLE_DISCRIMINANT,null,null);
                history.setText("");
+               ifDelete = "0";
            }
        });
 
@@ -61,8 +69,8 @@ TextView history;
                 accumulate += cursor.getInt(idIndex) + ": " + cursor.getString(aIndex) +
                         ", " + cursor.getString(bIndex) + ", " + cursor.getString(cIndex) + " Время: " + cursor.getString(timeIndex) + "\n";
                 time = cursor.getString(timeIndex);
-
-
+                amountUses = cursor.getInt(idIndex);
+                tmp = "" + amountUses;
 
             }while(cursor.moveToNext());
         }
@@ -72,12 +80,14 @@ TextView history;
         history.setText(accumulate);
         cursor.close();
         intent2.putExtra("Time", time);
+        intent2.putExtra("AmountUses",tmp);
 
 
 
         nextPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                intent2.putExtra("ifDeleteButPressed", ifDelete);
                 startActivity(intent2);
             }
         });

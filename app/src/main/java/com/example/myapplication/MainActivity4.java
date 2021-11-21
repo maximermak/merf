@@ -12,8 +12,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity4 extends AppCompatActivity {
 
+
     FloatingActionButton lastPage;
-    TextView lastUpdate;
+    TextView lastUpdate,amountUses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,12 +24,23 @@ public class MainActivity4 extends AppCompatActivity {
         lastPage = (FloatingActionButton) findViewById(R.id.page3_2);
 
         lastUpdate = (TextView) findViewById(R.id.lastUpdate);
+        amountUses = findViewById(R.id.amountOfUses);
 
         Intent intent = new Intent(this, MainActivity3.class);
 
         Intent intent1 = new Intent(this, MainActivity2.class);
 
-        lastUpdate.append(getIntent().getStringExtra("Time"));
+
+        if(getIntent().getStringExtra("Time") != null && getIntent().getStringExtra("AmountUses") != null &&
+                getIntent().getStringExtra("ifDeleteButPressed").equals("1")) {
+            lastUpdate.append(getIntent().getStringExtra("Time"));
+            amountUses.append(getIntent().getStringExtra("AmountUses"));
+        }else
+        {
+            lastUpdate.append("...");
+            amountUses.append("...");
+        }
+
 
         lastUpdate.setOnClickListener(new View.OnClickListener() {
             @Override

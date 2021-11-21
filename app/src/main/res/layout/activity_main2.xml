@@ -23,7 +23,7 @@
             android:id="@+id/tieB"
             android:layout_width="73dp"
             android:layout_height="55dp"
-            android:hint="b"
+            android:hint="@string/b"
             android:inputType="number"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -42,7 +42,7 @@
             android:id="@+id/tieA"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="a"
+            android:hint="@string/a"
             android:inputType="number"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -61,7 +61,7 @@
             android:id="@+id/tieC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="c"
+            android:hint="@string/c"
             android:inputType="number"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -70,6 +70,7 @@
         style="@android:style/Widget.Holo.Light.TextView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:gravity="center_horizontal"
         android:layout_marginStart="15dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="15dp"
@@ -84,7 +85,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/enterB"
-        app:layout_constraintVertical_bias="0.744" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/page12"
@@ -97,6 +98,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.008"
-        app:srcCompat="@android:drawable/ic_media_ff" />
+        app:srcCompat="@android:drawable/ic_media_ff"
+        android:focusable="true" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
